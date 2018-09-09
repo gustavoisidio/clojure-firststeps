@@ -139,6 +139,59 @@ user=> (conj #{:rabbit :door :mau} :jam) ; As we already seen conj add a element
 #{:mau :door :rabbit :jam}
 user=> (disj #{:rabbit :door :mau} :door) ; disj removes that element from the set
 #{:mau :rabbit}
+;
+; LET
+; Use let to create something temporary
+; Use def to create global variables
+;
+user=> (def developer "Alice")
+#'user/developer
+user=> user/developer
+"Alice"
+user=> (let [developer "Alice in Wonderland"] developer)
+"Alice in Wonderland"
+user=> developer
+"Alice"
+user=> (let [developer "macumba" rabbit "mumia"] developer)
+"macumba"
+user=> (let [developer "macumba" rabbit "mumia"] rabbit)
+"mumia"
+
+;
+; FUNCTIONS
+;
+
+user=> (defn shop-f [x y] {:name "joao" :jam1 x :jam2 y}) ; Definindo funcao com 2 parametros que entram em um maps
+#'user/shop-f
+user=> (shop-f "Maria" "jose") ; Chamando a função e passando os 2 parametros como duas strings
+{:name "joao", :jam1 "Maria", :jam2 "jose"}
+
+; Defining a function to add key-val in to a map
+user=> (def kiu {:k1 "A" :k2 "B"})
+#'user/kiu
+user=> (defn addMap [x y] (merge kiu {x y}))
+#'user/addMap
+user=> (addMap :k3 "C")
+{:k1 "A", :k2 "B", :k3 "C"}
+
+; A special function called "Anonnymous Function"
+user=> (fn [] (str "Off we go" "!"))
+#function[user/eval7323/fn--7324]
+user=> ((fn [] (str "Off we go" "!"))) ; Calling this function
+"Off we go!"
+user=> (def flowme (fn [] (str "Off we go" "!"))) ; Defining a symbol for this Annonymous Function 
+#'user/flowme
+user=> (flowme)
+"Off we go!"
+; Other ways to define and manipulate those Annonymous FUNCTIONS
+user=> (#(str "Off we go" "!")) ; Here we are using # in front of to specify a Annonymous Function
+"Off we go!"
+user=> (#(str "Off we go" "!" " - " %) "again") ; With % we can use arguments
+"Off we go! - again"
+user=> (#(str "Off we go" "!" " - " %1 %2) "again" "?") ; For more than 1 argument we can use %2, %3, %4...
+"Off we go! - again?"
+
+
 
 
 
