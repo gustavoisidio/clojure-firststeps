@@ -6,7 +6,7 @@
   "I don't do a whole lot."
   []
   (def aString "Gustavo") ;Declarando uma string
-  (def aLong 15)
+  (def aLong 15) 
   (def aDouble 1.123456)
   (format "Meu nome é %s" aString)
   (format "5 spaces and %5d" aLong)
@@ -18,6 +18,27 @@
   (str/includes? str1 "a")
   
   )
+
+( defn funNada
+  [ x ]
+  ( first x ))
+
+; This os not working well
+( defn exemple [ aList ]
+  ( if ( not ( nil? aList ) )
+    ( do
+      ( println ( first aList ) ) 
+      ( println ( rest aList ) ) ) ) )
+
+( defn is1 [ x ]
+  ( cond
+    (= x \1) true
+    (= x \0) true
+    :else false ) )
+
+( defn mulx2 [ aList ]
+  ( apply str ( filter is1 aList ) ) )
+
 
 ; (println "What is this:" (+ 1 2))
 ; (println "What is this:" (+ 1 3))

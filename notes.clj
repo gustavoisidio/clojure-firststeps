@@ -103,7 +103,7 @@ user=> (dissoc poui :k2) ; Dissoc removes the value and that associated key
 user=> (def ous {:jam1 "uss"})
 #'user/ous
 user=> (def uer {:jam2 "eita" :k1 "bora"})
-#'user/uer
+(def usu '(1 2 3 4 5))#'user/uer
 user=> (merge ous uer poui)
 {:jam1 "str", :jam2 "eita", :k1 "bora", :k2 "black"}
 user=> (merge ous poui uer)
