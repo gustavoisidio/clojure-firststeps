@@ -30,6 +30,9 @@
       ( println ( first aList ) ) 
       ( println ( rest aList ) ) ) ) )
 
+;(nil? '())
+
+
 ( defn is1 [ x ]
   ( cond
     (= x \1) true
