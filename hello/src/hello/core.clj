@@ -30,8 +30,15 @@
       ( println ( first aList ) ) 
       ( println ( rest aList ) ) ) ) )
 
-;(nil? '())
+; (nil? '())
 
+(loop [x 10]
+  ( type x )
+  (when (> x 1)
+    (println x)
+    (recur (- x 2))))
+
+;;=> 10 8 6 4 2
 
 ( defn is1 [ x ]
   ( cond
